@@ -1,0 +1,19 @@
+{
+  "name": "proj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nightwatch ./test --headless",
+    "testNavigationBar":"nightwatch ./test/navigationBar.js",
+    "testContactUs":"nightwatch ./test/contactUs.js --headless",
+    "testSearch":"nightwatch ./test/searchResults.js --headless"
+    
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nightwatch": "^3.3.7"
+  }
+}
