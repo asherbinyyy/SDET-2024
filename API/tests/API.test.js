@@ -23,14 +23,14 @@ describe("Test Auth API", function () {
     }
     await request(address)
       .post("/api/v1/users")
-      .set("Accept", "application/json")
+      // .set("Accept", "application/json")
       .send(registerBody);
   });
-
+  // Deletes user created
   afterEach(async () => {
     const response = await request(address)
       .delete("/api/v1/all-users")
-      .set("Accept", "application/json")
+      // .set("Accept", "application/json")
       .send({ key_admin: "keyadmin123" });
     expect(response.status).equal(200);
     expect(response.body).to.have.property("message");
@@ -40,7 +40,7 @@ describe("Test Auth API", function () {
   it("Creates new user successfully", async () => {
     const response = await request(address)
       .post("/api/v1/users")
-      .set("Accept", "application/json")
+      // .set("Accept", "application/json")
       .send(registerBody);
     expect(response.status).equal(200);
     expect(response.body).to.have.property("message");
@@ -50,7 +50,7 @@ describe("Test Auth API", function () {
   it("Logins successfully", async () => {
     const response = await request(address)
       .post("/api/v1/auth")
-      .set("Accept", "application/json")
+      // .set("Accept", "application/json")
       .send(loginBody);
     expect(response.status).equal(200);
     expect(response.body).to.have.property("token");
@@ -61,7 +61,7 @@ describe("Test Auth API", function () {
 
     const response = await request(address)
       .delete("/api/v1/users")
-      .set("Accept", "application/json")
+      // .set("Accept", "application/json")
       .set("Authorization", token);
 
     expect(response.status).equal(200);
@@ -70,7 +70,7 @@ describe("Test Auth API", function () {
 
     const responseLogin = await request(address)
       .post("/api/v1/auth")
-      .set("Accept", "application/json")
+      // .set("Accept", "application/json")
       .send(loginBody);
     expect(responseLogin.status).equal(401);
   });
@@ -80,7 +80,7 @@ describe("Test Auth API", function () {
 
     const response = await request(address)
       .get("/api/v1/users")
-      .set("Accept", "application/json")
+      // .set("Accept", "application/json")
       .set("Authorization", token);
     expect(response.status).equal(200);
     expect(response.body).to.have.property("id");
@@ -99,7 +99,7 @@ describe("Test Auth API", function () {
 
     const response = await request(address)
       .patch("/api/v1/users")
-      .set("Accept", "application/json")
+      // .set("Accept", "application/json")
       .set("Authorization", token)
       .send(newDataForPatch);
     expect(response.status).equal(200);
@@ -108,7 +108,7 @@ describe("Test Auth API", function () {
     token = await loginUser(newDataLogin);
     const responsePatch = await request(address)
       .get("/api/v1/users")
-      .set("Accept", "application/json")
+      // .set("Accept", "application/json")
       .set("Authorization", token);
     expect(responsePatch.status).equal(200);
     expect(responsePatch.body).to.have.property("id");
@@ -126,7 +126,7 @@ describe("Test Auth API", function () {
     //The before each hook already created the user, so we will use the same credentials
     const response = await request(address)
       .post("/api/v1/users")
-      .set("Accept", "application/json")
+      // .set("Accept", "application/json")
       .send(registerBody);
     expect(response.status).equal(401);
     expect(response.body).to.have.property("message");
@@ -136,7 +136,7 @@ describe("Test Auth API", function () {
   it("Returns token after register", async () => {
     const response = await request(address)
       .post("/api/v1/users")
-      .set("Accept", "application/json")
+      // .set("Accept", "application/json")
       .send(registerBody);
     expect(response.status).equal(200);
     expect(response.body).to.have.property("message");
@@ -147,7 +147,7 @@ describe("Test Auth API", function () {
   it("Fails registeration if body doesn't contain email", async () => {
     const response = await request(address)
       .post("/api/v1/users")
-      .set("Accept", "application/json")
+      // .set("Accept", "application/json")
       .send(invalidRegisterBody);
     expect(response.status).equal(401);
     expect(response.body).to.have.property("message");
@@ -157,7 +157,7 @@ describe("Test Auth API", function () {
   it("Gets user with empty/token field", async () => {
     const response = await request(address)
       .get("/api/v1/users")
-      .set("Accept", "application/json")
+      // .set("Accept", "application/json")
       .set("Authorization", "");
 
     expect(response.status).equal(403);
@@ -171,7 +171,7 @@ async function loginUser(loginData) {
     body: { token },
   } = await request(address)
     .post("/api/v1/auth")
-    .set("Accept", "application/json")
+    // .set("Accept", "application/json")
     .send(loginData);
   return token;
 }

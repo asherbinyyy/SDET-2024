@@ -3,12 +3,13 @@ const path = require("path");
 
 describe("Contact Us Page Testing", function () {
   it("1.1 Checks Elements' Visibility", function (browser) {
+    // Navigate to home page then to vontact us Page VIP CHECK E3MELHA
     var contactUs = browser.page.contactUs.contactUs();
     contactUs.navigate();
     var contactUsSection = contactUs.section.contactUs;
     var contactUs = browser.page.contactUs.contactUs();
     var contactUsSection = contactUs.section.contactUs;
-    contactUsSection.expect.element("@subjectHeadingDropdown").to.is.visible;
+    contactUsSection.expect.element("@subjectHeadingDropdown").to.be.visible;
     contactUsSection.expect.element("@email").to.be.visible;
     contactUsSection.expect.element("@orderReference").to.be.visible;
     var fileUploadSection = contactUsSection.section.fileUploading;

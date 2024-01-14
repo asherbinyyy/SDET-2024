@@ -2,7 +2,7 @@ describe("2. Search Testing", function () {
   it("2.1 Checks SearchBar's Visibility", async function (browser) {
     var search = browser.page.search.search();
     search.navigate();
-    search.expect.element("@searchBar").to.is.visible;
+    search.expect.element("@searchBar").to.be.visible;
   });
   it("2.2 Searches For Dress and Validates Results", async function (browser) {
     var search = browser.page.search.search();
