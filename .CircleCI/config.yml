@@ -1,0 +1,48 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.7
+  browser-tools: circleci/browser-tools@1.4.6
+
+jobs:
+  testUI:
+    working_directory: /home/circleci/SDET-2023
+    docker:
+      - image: cimg/node:20.4.0-browsers
+    steps:
+      - browser-tools/install-browser-tools
+      - checkout
+      - run:
+          name: Install Dependencies
+          working_directory: /home/circleci/SDET-2023/UI
+          command: npm install
+      - run:
+          name: Run Tests
+          working_directory: /home/circleci/SDET-2023/UI
+          command: npm run test
+      - store_artifacts:
+          path: /home/circleci/SDET-2023/UI/tests_output/nightwatch-html-report/index.html
+          destination: reports
+
+  testAPI:
+    working_directory: /home/circleci/SDET-2023
+    executor: node/default
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          working_directory: /home/circleci/SDET-2023/API
+          command: npm install
+      - run:
+          name: Run Server
+          working_directory: /home/circleci/SDET-2023/API
+          command: npm run ci
+      - store_artifacts:
+          path: /home/circleci/SDET-2023/API/mochawesome-report
+          destination: reports
+
+workflows:
+  e2e-test:
+    jobs:
+      - testUI
+      - testAPI
