@@ -1,0 +1,299 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 9,
+    "passes": 7,
+    "pending": 0,
+    "failures": 2,
+    "start": "2024-01-14T19:29:05.028Z",
+    "end": "2024-01-14T19:29:05.205Z",
+    "duration": 177,
+    "testsRegistered": 9,
+    "passPercent": 77.77777777777779,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "124eb674-8307-447f-aaa0-ce5318039c6f",
+      "title": "",
+      "fullFile": "C:\\Users\\Ahmed.El-Sherbini\\Desktop\\New folder\\API\\tests\\API.test.js",
+      "file": "\\tests\\API.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d853df14-bba9-4796-a4b0-82a3b3b91178",
+          "title": "Test Auth API",
+          "fullFile": "C:\\Users\\Ahmed.El-Sherbini\\Desktop\\New folder\\API\\tests\\API.test.js",
+          "file": "\\tests\\API.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Test Auth API\"",
+              "fullTitle": "Test Auth API \"before each\" hook in \"Test Auth API\"",
+              "timedOut": false,
+              "duration": 7,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (\n  this.currentTest.title === \"Creates new user successfully\" ||\n  this.currentTest.title === \"Returns token after register\" ||\n  this.currentTest.title ===\n    \"Fails registeration if body doesn't contain email\"\n) {\n  // Skip user creation for a specific test\n  console.log(\"Skipping user creation for Specific Test Case\");\n  return;\n}\nawait request(address)\n  .post(\"/api/v1/users\")\n  // .set(\"Accept\", \"application/json\")\n  .send(registerBody);",
+              "err": {},
+              "uuid": "eb8c3ce2-dfc6-4766-b74a-291cdaa74067",
+              "parentUUID": "d853df14-bba9-4796-a4b0-82a3b3b91178",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"Test Auth API\"",
+              "fullTitle": "Test Auth API \"after each\" hook in \"Test Auth API\"",
+              "timedOut": false,
+              "duration": 3,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request(address)\n  .delete(\"/api/v1/all-users\")\n  // .set(\"Accept\", \"application/json\")\n  .send({ key_admin: \"keyadmin123\" });\nexpect(response.status).equal(200);\nexpect(response.body).to.have.property(\"message\");\nexpect(response.body.message).equal(\"Users deleted with success\");",
+              "err": {},
+              "uuid": "9a4b74c1-e4db-4c5f-b3df-583e35b53e32",
+              "parentUUID": "d853df14-bba9-4796-a4b0-82a3b3b91178",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Creates new user successfully",
+              "fullTitle": "Test Auth API Creates new user successfully",
+              "timedOut": false,
+              "duration": 51,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request(address)\n  .post(\"/api/v1/users\")\n  // .set(\"Accept\", \"application/json\")\n  .send(registerBody);\nexpect(response.status).equal(200);\nexpect(response.body).to.have.property(\"message\");\nexpect(response.body.message).equal(\"User registered with success\");",
+              "err": {},
+              "uuid": "887b3769-92fc-45d2-b8f5-8b78fe3a614a",
+              "parentUUID": "d853df14-bba9-4796-a4b0-82a3b3b91178",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Logins successfully",
+              "fullTitle": "Test Auth API Logins successfully",
+              "timedOut": false,
+              "duration": 4,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request(address)\n  .post(\"/api/v1/auth\")\n  // .set(\"Accept\", \"application/json\")\n  .send(loginBody);\nexpect(response.status).equal(200);\nexpect(response.body).to.have.property(\"token\");",
+              "err": {},
+              "uuid": "55bf67c7-ecbd-4215-81a8-3a0be34f98c1",
+              "parentUUID": "d853df14-bba9-4796-a4b0-82a3b3b91178",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deletes user Successfully",
+              "fullTitle": "Test Auth API Deletes user Successfully",
+              "timedOut": false,
+              "duration": 12,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const token = await loginUser(loginBody);\nconst response = await request(address)\n  .delete(\"/api/v1/users\")\n  // .set(\"Accept\", \"application/json\")\n  .set(\"Authorization\", token);\nexpect(response.status).equal(200);\nexpect(response.body).to.have.property(\"message\");\nexpect(response.body.message).equal(\"User deleted with success!\");\nconst responseLogin = await request(address)\n  .post(\"/api/v1/auth\")\n  // .set(\"Accept\", \"application/json\")\n  .send(loginBody);\nexpect(responseLogin.status).equal(401);",
+              "err": {},
+              "uuid": "6230e9c5-e9bf-4d40-9f97-ba151f19b4d4",
+              "parentUUID": "d853df14-bba9-4796-a4b0-82a3b3b91178",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Gets user's data by token",
+              "fullTitle": "Test Auth API Gets user's data by token",
+              "timedOut": false,
+              "duration": 6,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const token = await loginUser(loginBody);\nconst response = await request(address)\n  .get(\"/api/v1/users\")\n  // .set(\"Accept\", \"application/json\")\n  .set(\"Authorization\", token);\nexpect(response.status).equal(200);\nexpect(response.body).to.have.property(\"id\");\nexpect(response.body).to.have.property(\"name\");\nexpect(response.body).to.have.property(\"email\");\nexpect(response.body.email).equal(loginBody.email);\nexpect(response.body).to.have.property(\"password\");\nexpect(response.body.password).equal(loginBody.password);\nexpect(response.body).to.have.property(\"imageUrl\");",
+              "err": {},
+              "uuid": "f2593dcb-39a6-4c1f-99f9-3a7fbd9c4165",
+              "parentUUID": "d853df14-bba9-4796-a4b0-82a3b3b91178",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Patches user's data",
+              "fullTitle": "Test Auth API Patches user's data",
+              "timedOut": false,
+              "duration": 16,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var token = await loginUser(loginBody);\nconst response = await request(address)\n  .patch(\"/api/v1/users\")\n  // .set(\"Accept\", \"application/json\")\n  .set(\"Authorization\", token)\n  .send(newDataForPatch);\nexpect(response.status).equal(200);\nexpect(response.body).to.have.property(\"message\");\nexpect(response.body.message).equal(\"User updated with success!\");\ntoken = await loginUser(newDataLogin);\nconst responsePatch = await request(address)\n  .get(\"/api/v1/users\")\n  // .set(\"Accept\", \"application/json\")\n  .set(\"Authorization\", token);\nexpect(responsePatch.status).equal(200);\nexpect(responsePatch.body).to.have.property(\"id\");\nexpect(responsePatch.body).to.have.property(\"name\");\nexpect(responsePatch.body).to.have.property(\"email\");\nexpect(responsePatch.body.email).equal(newDataForPatch.email);\nexpect(responsePatch.body).to.have.property(\"password\");\nexpect(responsePatch.body.password).equal(newDataForPatch.password);\nexpect(responsePatch.body).to.have.property(\"imageUrl\");",
+              "err": {},
+              "uuid": "693e6df1-b343-4513-b99a-d0066fc7f60a",
+              "parentUUID": "d853df14-bba9-4796-a4b0-82a3b3b91178",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Creates new user with already existing email",
+              "fullTitle": "Test Auth API Creates new user with already existing email",
+              "timedOut": false,
+              "duration": 4,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//The before each hook already created the user, so we will use the same credentials\nconst response = await request(address)\n  .post(\"/api/v1/users\")\n  // .set(\"Accept\", \"application/json\")\n  .send(registerBody);\nexpect(response.status).equal(401);\nexpect(response.body).to.have.property(\"message\");\nexpect(response.body.message).equal(\"User already registered\");",
+              "err": {},
+              "uuid": "3ed1c1b9-3cec-4c97-8ae5-8db69179015a",
+              "parentUUID": "d853df14-bba9-4796-a4b0-82a3b3b91178",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Returns token after register",
+              "fullTitle": "Test Auth API Returns token after register",
+              "timedOut": false,
+              "duration": 4,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request(address)\n  .post(\"/api/v1/users\")\n  // .set(\"Accept\", \"application/json\")\n  .send(registerBody);\nexpect(response.status).equal(200);\nexpect(response.body).to.have.property(\"message\");\nexpect(response.body.message).equal(\"User registered with success\");\nexpect(response.body).to.have.property(\"token\");",
+              "err": {
+                "message": "AssertionError: expected { Object (message) } to have property 'token'",
+                "estack": "AssertionError: expected { Object (message) } to have property 'token'\n    at Context.<anonymous> (file:///C:/Users/Ahmed.El-Sherbini/Desktop/New%20folder/API/tests/API.test.js:144:35)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": null
+              },
+              "uuid": "bd18337a-5e70-4b14-ab0d-6667e920d7ab",
+              "parentUUID": "d853df14-bba9-4796-a4b0-82a3b3b91178",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Fails registeration if body doesn't contain email",
+              "fullTitle": "Test Auth API Fails registeration if body doesn't contain email",
+              "timedOut": false,
+              "duration": 3,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request(address)\n  .post(\"/api/v1/users\")\n  // .set(\"Accept\", \"application/json\")\n  .send(invalidRegisterBody);\nexpect(response.status).equal(401);\nexpect(response.body).to.have.property(\"message\");\nexpect(response.body.message).not.equal(\"User registered with success\");",
+              "err": {
+                "message": "AssertionError: expected 200 to equal 401",
+                "estack": "AssertionError: expected 200 to equal 401\n    at Context.<anonymous> (file:///C:/Users/Ahmed.El-Sherbini/Desktop/New%20folder/API/tests/API.test.js:152:29)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 200\n+ 401\n"
+              },
+              "uuid": "b17b42c7-2ca7-461e-a28b-76d1a8e6f9b0",
+              "parentUUID": "d853df14-bba9-4796-a4b0-82a3b3b91178",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Gets user with empty/token field",
+              "fullTitle": "Test Auth API Gets user with empty/token field",
+              "timedOut": false,
+              "duration": 4,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request(address)\n  .get(\"/api/v1/users\")\n  // .set(\"Accept\", \"application/json\")\n  .set(\"Authorization\", \"\");\nexpect(response.status).equal(403);\nexpect(response.body).to.have.property(\"message\");\nexpect(response.body.message).equal(\"Unauthorized\");",
+              "err": {},
+              "uuid": "03373944-2d35-45b6-9329-032271a13979",
+              "parentUUID": "d853df14-bba9-4796-a4b0-82a3b3b91178",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "887b3769-92fc-45d2-b8f5-8b78fe3a614a",
+            "55bf67c7-ecbd-4215-81a8-3a0be34f98c1",
+            "6230e9c5-e9bf-4d40-9f97-ba151f19b4d4",
+            "f2593dcb-39a6-4c1f-99f9-3a7fbd9c4165",
+            "693e6df1-b343-4513-b99a-d0066fc7f60a",
+            "3ed1c1b9-3cec-4c97-8ae5-8db69179015a",
+            "03373944-2d35-45b6-9329-032271a13979"
+          ],
+          "failures": [
+            "bd18337a-5e70-4b14-ab0d-6667e920d7ab",
+            "b17b42c7-2ca7-461e-a28b-76d1a8e6f9b0"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 104,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
