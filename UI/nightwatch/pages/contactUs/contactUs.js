@@ -51,7 +51,6 @@ module.exports = {
             uploadButton: {
               selector: "#uniform-fileUpload span",
               index: 1,
-              // selector: ".action-class",
             },
             fileInput: { selector: "#fileUpload" },
           },

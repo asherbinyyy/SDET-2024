@@ -3,9 +3,11 @@ const path = require("path");
 
 describe("Contact Us Page Testing", function () {
   it("1.1 Checks Elements' Visibility", function (browser) {
-    // Navigate to home page then to vontact us Page VIP CHECK E3MELHA
+    var contactUsAtIndex = browser.page.index.index();
+    contactUsAtIndex.navigate();
+    contactUsAtIndex.expect.element("@contactUsButton").to.be.visible;
+    contactUsAtIndex.element("@contactUsButton").click();
     var contactUs = browser.page.contactUs.contactUs();
-    contactUs.navigate();
     var contactUsSection = contactUs.section.contactUs;
     var contactUs = browser.page.contactUs.contactUs();
     var contactUsSection = contactUs.section.contactUs;
@@ -248,13 +250,8 @@ describe("Contact Us Page Testing", function () {
       new RegExp(data.emailRegex)
     );
 
-    contactUsSection
-      .element("@orderReference")
-      .setValue("Order Number 9998777");
-    contactUsSection.assert.valueEquals(
-      "@orderReference",
-      "Order Number 9998777"
-    );
+    contactUsSection.element("@orderReference").setValue(data.orderNumber);
+    contactUsSection.assert.valueEquals("@orderReference", data.orderNumber);
 
     contactUsSection.element("@message").setValue(data.messageEntered);
     contactUsSection.assert.valueEquals("@message", data.messageEntered);
@@ -273,7 +270,7 @@ describe("Contact Us Page Testing", function () {
 
     browser.end();
   });
-  it("1.11 Filling Mandatory Fields With Message Including 1000 Characters - Gives Valid Submission -- Bug", async function (browser) {
+  it("1.11 Filling Mandatory Fields With Message Including 1000 Characters", async function (browser) {
     var contactUs = browser.page.contactUs.contactUs();
     contactUs.navigate();
     var contactUsSection = contactUs.section.contactUs;

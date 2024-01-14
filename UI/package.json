@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nightwatch ./test --headless",
-    "testNavigationBar":"nightwatch ./test/navigationBar.js",
-    "testContactUs":"nightwatch ./test/contactUs.js --headless",
+    "testContactUs":"nightwatch ./test/contactUs.js --headless ",
     "testSearch":"nightwatch ./test/searchResults.js --headless"
     
   },
