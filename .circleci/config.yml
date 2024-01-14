@@ -6,7 +6,7 @@ orbs:
 
 jobs:
   testUI:
-    working_directory: /home/circleci/SDET-2023
+    working_directory: /home/circleci/SDET-2024
     docker:
       - image: cimg/node:20.4.0-browsers
     steps:
@@ -14,31 +14,31 @@ jobs:
       - checkout
       - run:
           name: Install Dependencies
-          working_directory: /home/circleci/SDET-2023/UI
+          working_directory: /home/circleci/SDET-2024/UI
           command: npm install
       - run:
           name: Run Tests
-          working_directory: /home/circleci/SDET-2023/UI
+          working_directory: /home/circleci/SDET-2024/UI
           command: npm run test
       - store_artifacts:
-          path: /home/circleci/SDET-2023/UI/tests_output/nightwatch-html-report/index.html
+          path: /home/circleci/SDET-2024/UI/tests_output/nightwatch-html-report/index.html
           destination: reports
 
   testAPI:
-    working_directory: /home/circleci/SDET-2023
+    working_directory: /home/circleci/SDET-2024
     executor: node/default
     steps:
       - checkout
       - run:
           name: Install Dependencies
-          working_directory: /home/circleci/SDET-2023/API
+          working_directory: /home/circleci/SDET-2024/API
           command: npm install
       - run:
           name: Run Server
-          working_directory: /home/circleci/SDET-2023/API
+          working_directory: /home/circleci/SDET-2024/API
           command: npm run ci
       - store_artifacts:
-          path: /home/circleci/SDET-2023/API/mochawesome-report
+          path: /home/circleci/SDET-2024/API/mochawesome-report
           destination: reports
 
 workflows:
