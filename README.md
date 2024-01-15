@@ -29,7 +29,7 @@ This project is designed to provide a user interface (UI) testing for the websit
 
   - **SuperTest**
   - **chai** for assertions
-  - **mocha** for running tests and generating HTML reports.
+  - **mocha** for running tests and generating HTML reports
 
 - [API Tests HTML Results](https://output.circle-artifacts.com/output/job/6fa8cce9-bf9e-49e9-bf80-601f559aac20/artifacts/0/reports/mochawesome.html)
 
