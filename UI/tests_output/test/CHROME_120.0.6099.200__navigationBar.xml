@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="test.navigationBar"
+    errors="0" failures="0" hostname="" id="" package="navigationBar" skipped="0"
+    tests="1" time="12.03" timestamp="">
+  
+    <testcase name="Tests the presence of elemnts in navigation tool bar" classname="test.navigationBar" time="6.013" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

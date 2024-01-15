@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="contactUs"
+    errors="0" failures="1" hostname="" id="" package="contactUs" skipped="0"
+    tests="1" time="0.1810" timestamp="">
+  
+    <testcase name="1.6 Filling All Fields ( Required + Optional ) For a Valid Submission" classname="contactUs" time="0.08700" assertions="1">  <failure message="Cannot read properties of undefined (reading &#39;contactUs&#39;)">TypeError: Cannot read properties of undefined (reading &#39;contactUs&#39;)
+    at DescribeInstance.&lt;anonymous&gt; (file:///C:/Users/Ahmed.El-Sherbini/Desktop/proj/test/contactUs.js:122:44)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>
