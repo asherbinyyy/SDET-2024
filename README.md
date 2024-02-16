@@ -1,4 +1,5 @@
 # SDET 2024 - Technical Task
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/asherbinyyy/SDET-2024/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/asherbinyyy/SDET-2024/tree/main)
 
 ## Introduction
 
@@ -50,6 +51,5 @@ This project is designed to provide a user interface (UI) testing for the websit
   - [Bug Report for the UI Testing](https://github.com/asherbinyyy/SDET-2024/blob/main/SDET2024-Technical_Task--%20UI_BugReport_Documentation.pdf)
   - [Bug Report for the API Testing](https://github.com/asherbinyyy/SDET-2024/blob/main/SDET2024-Technical_Task--%20API_BugReport_Documentation.pdf)
 
-# CircleCI Status Badge:
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/asherbinyyy/SDET-2024/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/asherbinyyy/SDET-2024/tree/main)
+
