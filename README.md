@@ -21,7 +21,7 @@ This project is designed to provide a user interface (UI) testing for the websit
   - Contact Us Page Functionality Tests
   - Search Results Functionality Tests
 
-- [UI Tests HTML Results](https://output.circle-artifacts.com/output/job/5cc1f793-7150-4030-aa2b-f778f3430abd/artifacts/0/reports)
+- [UI Tests HTML Results](https://output.circle-artifacts.com/output/job/ec38b2e9-568b-4db0-b138-7bf8ea504d6a/artifacts/0/reports)
 
 2. **API Testing:**
 
@@ -31,7 +31,7 @@ This project is designed to provide a user interface (UI) testing for the websit
   - **chai** for assertions
   - **mocha** for running tests and generating HTML reports
 
-- [API Tests HTML Results](https://output.circle-artifacts.com/output/job/6fa8cce9-bf9e-49e9-bf80-601f559aac20/artifacts/0/reports/mochawesome.html)
+- [API Tests HTML Results](https://output.circle-artifacts.com/output/job/965a5e50-9d97-4322-af79-0cee499844e0/artifacts/0/reports/mochawesome.html)
 
 3. **Integration with CircleCI**
 
